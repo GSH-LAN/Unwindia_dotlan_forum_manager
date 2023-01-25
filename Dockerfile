@@ -14,4 +14,4 @@ RUN microdnf update && microdnf -y install ca-certificates inotify-tools
 
 COPY --from=build-env /app/unwindia_dotlan_forum_manager /
 EXPOSE 8080
-CMD ["./unwindia_ms_dotlan"]
+CMD ["./unwindia_dotlan_forum_manager"]

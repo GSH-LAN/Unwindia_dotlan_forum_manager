@@ -6,3 +6,6 @@
 # UNWINDIA DotLAN Forum Manager
 > [Unwindia](https://github.com/GSH-LAN/Unwindia)'s DotLAN integration for communicate with forum threads according to tournament status
 ---
+
+This service reads events with match informations from the messagequeue and publishes forum threads and comments to Dotlan. 
+The published comments contains the match informations parsed into a message template using go's [text/template](https://pkg.go.dev/text/template) package.

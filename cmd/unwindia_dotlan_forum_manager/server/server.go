@@ -88,7 +88,7 @@ func (s *Server) matchInfoHandler(matchInfo *matchservice.MatchInfo) {
 	s.lock.Lock()
 	defer s.lock.Unlock()
 
-	commentText, err := template.ParseTemplateForMatch(s.config.GetConfig().Templates["CMS_FORUM_POST.gohtml"], matchInfo)
+	commentText, err := template.ParseTemplateForMatch(s.config.GetConfig().Templates["DOTLAN_FORUM_POST.gohtml"], matchInfo)
 	if err != nil {
 		log.Error().Err(err).Msg("Error parsing template")
 	}
@@ -107,6 +107,11 @@ func (s *Server) matchInfoHandler(matchInfo *matchservice.MatchInfo) {
 		threadId, postId, err := s.dotlanClient.UpsertForumPostForMatch(dotlanContext, matchInfo, commentText)
 		if err != nil {
 			log.Error().Err(err).Msg("Error upserting forum post for match")
+			return
+		}
+
+		if threadId == 0 || postId == 0 {
+			log.Warn().Int("threadId", threadId).Int("postId", postId).Msgf("got invalid")
 			return
 		}
 

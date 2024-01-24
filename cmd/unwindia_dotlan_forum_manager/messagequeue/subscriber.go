@@ -2,7 +2,6 @@ package messagequeue
 
 import (
 	"context"
-	"fmt"
 	"github.com/GSH-LAN/Unwindia_common/src/go/matchservice"
 	"github.com/GSH-LAN/Unwindia_common/src/go/messagebroker"
 	"github.com/GSH-LAN/Unwindia_dotlan_forum_manager/cmd/unwindia_dotlan_forum_manager/environment"
@@ -11,11 +10,11 @@ import (
 	jsoniter "github.com/json-iterator/go"
 	"github.com/mitchellh/mapstructure"
 	"github.com/rs/zerolog/log"
+	"path"
 )
 
 const (
 	SubscriberName = "UNWINDIA_DOTLAN_FORUM_MANAGER"
-	topicBase      = "persistent://public/default/%s"
 )
 
 type Subscriber struct {
@@ -36,7 +35,7 @@ func NewSubscriber(ctx context.Context, env *environment.Environment, matchInfoC
 	}
 
 	consumer, err := client.Subscribe(pulsar.ConsumerOptions{
-		Topic:            fmt.Sprintf(topicBase, messagebroker.TOPIC),
+		Topic:            env.PulsarBaseTopic,
 		SubscriptionName: SubscriberName,
 		Type:             pulsar.Shared,
 	})
@@ -45,9 +44,10 @@ func NewSubscriber(ctx context.Context, env *environment.Environment, matchInfoC
 		return nil, err
 	}
 
+	_, topic := path.Split(env.PulsarBaseTopic)
 	subscriber := Subscriber{
 		mainContext:    ctx,
-		topic:          messagebroker.TOPIC,
+		topic:          topic,
 		pulsarClient:   client,
 		pulsarConsumer: consumer,
 		matchInfoChan:  matchInfoChan,

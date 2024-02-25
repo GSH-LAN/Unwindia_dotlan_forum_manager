@@ -62,6 +62,8 @@ github.com/GSH-LAN/Unwindia_common v0.0.10 h1:H7dx59/9CF3YmbiYjeLWsheS0Khhi1AouF
 github.com/GSH-LAN/Unwindia_common v0.0.10/go.mod h1:FjV6kvx/PQRi63sV2TlOEhVmM7n82+qmyVTsjemMuVE=
 github.com/GSH-LAN/Unwindia_common v0.0.12 h1:BAsibpgDbVYcp60tx7vVStoFq2hQY9fMI97h51U7C3A=
 github.com/GSH-LAN/Unwindia_common v0.0.12/go.mod h1:fZF0J/QbA1nej/yz+9EHlWVVasrRYoLoOSWbQgAfHpY=
+github.com/GSH-LAN/Unwindia_common v0.0.13 h1:lrY8ZH/s3qBx+HBUTez5W/kZ991Rf54KlrTT65MHVlU=
+github.com/GSH-LAN/Unwindia_common v0.0.13/go.mod h1:FBq79Uc4o93Zd4QM7ErbaAiyQGcwo+X5LcuJHPhayjw=
 github.com/Masterminds/squirrel v1.5.4 h1:uUcX/aBc8O7Fg9kaISIUsHXdKuqehiXAMQTYX8afzqM=
 github.com/Masterminds/squirrel v1.5.4/go.mod h1:NNaOrjSoIDfDA40n7sr2tPNZRfjzjA400rg+riTZj10=
 github.com/ThreeDotsLabs/watermill v1.2.0 h1:TU3TML1dnQ/ifK09F2+4JQk2EKhmhXe7Qv7eb5ZpTS8=
